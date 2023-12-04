@@ -1,0 +1,126 @@
+[
+    {
+        "id": "4e1c59771863d6ae1a2904c76576cb14",
+        "sport_key": "basketball_nba",
+        "sport_title": "NBA",
+        "commence_time": "2023-12-05T00:30:00Z",
+        "home_team": "Indiana Pacers",
+        "away_team": "Boston Celtics",
+        "bookmaker": {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2023-12-04T20:10:28Z",
+            "markets": [
+                {
+                    "key": "totals",
+                    "last_update": "2023-12-04T20:10:28Z",
+                    "outcomes": [
+                        {
+                            "name": "Over",
+                            "price": 1.91,
+                            "point": 244.0
+                        },
+                        {
+                            "name": "Under",
+                            "price": 1.91,
+                            "point": 244.0
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "id": "9f8d190cf4e30de3a216f87d71298fa1",
+        "sport_key": "basketball_nba",
+        "sport_title": "NBA",
+        "commence_time": "2023-12-05T03:00:00Z",
+        "home_team": "Sacramento Kings",
+        "away_team": "New Orleans Pelicans",
+        "bookmaker": {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2023-12-04T20:10:28Z",
+            "markets": [
+                {
+                    "key": "totals",
+                    "last_update": "2023-12-04T20:10:28Z",
+                    "outcomes": [
+                        {
+                            "name": "Over",
+                            "price": 1.91,
+                            "point": 236.5
+                        },
+                        {
+                            "name": "Under",
+                            "price": 1.91,
+                            "point": 236.5
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "id": "ec282e0c8b645a366ef55cf3d58b3dff",
+        "sport_key": "basketball_nba",
+        "sport_title": "NBA",
+        "commence_time": "2023-12-06T00:30:00Z",
+        "home_team": "Milwaukee Bucks",
+        "away_team": "New York Knicks",
+        "bookmaker": {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2023-12-04T20:10:28Z",
+            "markets": [
+                {
+                    "key": "totals",
+                    "last_update": "2023-12-04T20:10:28Z",
+                    "outcomes": [
+                        {
+                            "name": "Over",
+                            "price": 1.89,
+                            "point": 225.0
+                        },
+                        {
+                            "name": "Under",
+                            "price": 1.93,
+                            "point": 225.0
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "id": "db8f2e10cb78a4981e53fb37d333ec4c",
+        "sport_key": "basketball_nba",
+        "sport_title": "NBA",
+        "commence_time": "2023-12-06T03:00:00Z",
+        "home_team": "Los Angeles Lakers",
+        "away_team": "Phoenix Suns",
+        "bookmaker": {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2023-12-04T20:10:28Z",
+            "markets": [
+                {
+                    "key": "totals",
+                    "last_update": "2023-12-04T20:10:28Z",
+                    "outcomes": [
+                        {
+                            "name": "Over",
+                            "price": 1.93,
+                            "point": 227.0
+                        },
+                        {
+                            "name": "Under",
+                            "price": 1.89,
+                            "point": 227.0
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]
