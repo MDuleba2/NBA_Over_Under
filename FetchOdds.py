@@ -1,6 +1,7 @@
 import argparse
 import requests
 import json
+from datetime import datetime, timedelta
 
 # Obtain the API key that was passed in from the command line
 parser = argparse.ArgumentParser(description='Sample V4')
@@ -39,28 +40,39 @@ odds_response = requests.get(f'https://api.the-odds-api.com/v4/sports/{SPORT}/od
     'dateFormat': DATE_FORMAT,
 })
 
+# Get todays date
+today_date = datetime.utcnow().date()
+
 # Handle fetch
 if odds_response.status_code != 200:
     print(f'Failed to get odds: status_code {odds_response.status_code}, response body {odds_response.text}')
 else:
-    odds_data = odds_response.json()  # Convert the response to a list
+    # Convert the response to a list
+    odds_data = odds_response.json()  
+    # Create filtered data 
+    fanDuel_data = []
 
-    games = []
-    for data in odds_data:
-        for event in data.get('data', []):
-            sites = event.get('sites', [])
-            for site in sites:
-                if site['site_key'] == 'fanduel':
-                    game_info = {
-                        'home_team': event['home_team'],
-                        'away_team': event['away_team'],
-                        'over_under': site['odds']['totals'][0]['points']
-                    }
-                    games.append(game_info)
-                    break  # Once found for FanDuel, break to the next event
+    # Filter data to desired sports book
+    for game in odds_data:
 
+        game_date = datetime.strptime(game['commence_time'], '%Y-%m-%dT%H:%M:%SZ').date()
+        if game_date == today_date:
+            for bookmaker in game['bookmakers']:
+                if bookmaker['title'] == 'FanDuel':
+                    fanDuel_data.append({
+                        'id': game['id'],
+                        'sport_key': game['sport_key'],
+                        'sport_title': game['sport_title'],
+                        'commence_time': game['commence_time'],
+                        'home_team': game['home_team'],
+                        'away_team': game['away_team'],
+                        'bookmaker': bookmaker
+                    })
+
+    # Display the filtered data
     with open('NBA_OverUnder.json', 'w') as file:
-        json.dump(games, file, indent=4)
+        json.dump(fanDuel_data, file, indent=4)
 
+    # Display remaining requests
     print('Remaining requests', odds_response.headers['x-requests-remaining'])
     print('Used requests', odds_response.headers['x-requests-used'])

@@ -240,14 +240,6 @@
         "has_outrights": false
     },
     {
-        "key": "soccer_denmark_superliga",
-        "group": "Soccer",
-        "title": "Denmark Superliga",
-        "description": "Danish Soccer",
-        "active": true,
-        "has_outrights": false
-    },
-    {
         "key": "soccer_efl_champ",
         "group": "Soccer",
         "title": "Championship",
@@ -360,6 +352,14 @@
         "has_outrights": false
     },
     {
+        "key": "soccer_mexico_ligamx",
+        "group": "Soccer",
+        "title": "Liga MX",
+        "description": "Mexican Soccer",
+        "active": true,
+        "has_outrights": false
+    },
+    {
         "key": "soccer_netherlands_eredivisie",
         "group": "Soccer",
         "title": "Dutch Eredivisie",
@@ -372,14 +372,6 @@
         "group": "Soccer",
         "title": "Ekstraklasa - Poland",
         "description": "Polish Soccer",
-        "active": true,
-        "has_outrights": false
-    },
-    {
-        "key": "soccer_portugal_primeira_liga",
-        "group": "Soccer",
-        "title": "Primeira Liga - Portugal",
-        "description": "Portugese Soccer",
         "active": true,
         "has_outrights": false
     },
