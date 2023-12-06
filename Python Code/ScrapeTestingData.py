@@ -6,7 +6,7 @@ def main():
     folder_location = r'Testing Data'
 
     # Store columns
-    columns = ['Away', 'Home', 'Result (Winner)']
+    columns = ['Away', 'Home', 'Result']
     testing_data = pd.DataFrame()
 
     # Loop through each file in directory
