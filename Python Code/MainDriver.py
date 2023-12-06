@@ -5,8 +5,6 @@ import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 
-
-
 def modelPrediction(team_stats_df, training_data, testing_data):
     ''' 
     This method takes in all of the data that we have extracted
@@ -50,6 +48,47 @@ def modelPrediction(team_stats_df, training_data, testing_data):
 
     return predictions
 
+def calculateAccuracy(df):
+    '''
+    This method will calculate and print the accuracy of
+    the model that we just constructed, given the df that stores
+    all of the predictions and outcomes.
+
+    @param df: df containing predictions and outcomes
+    '''
+
+    # Calculate Correct Predictions
+    correct_predictions = (df['Prediction'] == df['Result']).sum()
+
+    # Calculate Total Predictions
+    total_predictions = len(df)
+
+    # Calculate Accuracy
+    accuracy = correct_predictions / total_predictions
+
+    # Display Accuracy
+    print(f"Correct Predictions: {correct_predictions}")
+    print(f"Total Predictions: {total_predictions}")
+    print(f"Accuracy: {accuracy * 100:.2f}%")
+
+    # Categorize Predictions
+    df['TP'] = (df['Prediction'] == df['Result']) & (df['Prediction'] != '-')
+    df['FP'] = (df['Prediction'] != df['Result']) & (df['Prediction'] != '-')
+    df['TN'] = (df['Prediction'] == '-') & (df['Result'] == '-')
+    df['FN'] = (df['Prediction'] == '-') & (df['Result'] != '-')
+
+    # Calculate Counts for Each Category
+    tp_count = df['TP'].sum()
+    fp_count = df['FP'].sum()
+    tn_count = df['TN'].sum()
+    fn_count = df['FN'].sum()
+
+    # Display Results
+    print(f"\nTrue Positive (TP): {tp_count}")
+    print(f"False Positive (FP): {fp_count}")
+    print(f"True Negative (TN): {tn_count}")
+    print(f"False Negative (FN): {fn_count}")
+
 def main():
 
     # Season Stats for each team
@@ -57,14 +96,16 @@ def main():
     
     # Scrape datasets
     training_data = ScrapeTrainingData.main()
-    testing_data = ScrapeTestingData.main()
+    testing_data, result = ScrapeTestingData.main()
 
     # Get predicitons for our model
     predictions = modelPrediction(team_stats_df, training_data, testing_data)
-    print(predictions)
 
     # Calculate accuracy
+    testing_data['Prediction'] = predictions
+    testing_data['Result'] = result
 
+    calculateAccuracy(testing_data)
 
 if __name__ == "__main__":
     main()
